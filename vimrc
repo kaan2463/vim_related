@@ -16,6 +16,14 @@ set clipboard=unnamedplus
 map <C-c> "+y
 
 
+" Highlight cursorline
+set cursorline
+hi cursorline cterm=none term=none
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+highlight CursorLine guibg=#303000 ctermbg=234
+
+
 autocmd FileType c,cpp set cindent
 autocmd FileType html set filetype=html
 autocmd FileType html set smartindent
@@ -38,4 +46,3 @@ nnoremap <silent> <C-down> :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'
 nnoremap <silent> <C-up> :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>k
 nnoremap <silent> <M-d> :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR><CR>
 nnoremap <silent> <M-u> :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>k
-
